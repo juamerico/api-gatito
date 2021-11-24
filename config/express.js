@@ -1,3 +1,5 @@
+const cors = require("cors")
+
 const express = require('express')
     , app = express()
     , bodyParser = require('body-parser')
@@ -8,6 +10,9 @@ const express = require('express')
     , uuidv4 = require('uuid/v4')
     , fs = require('fs')
     , { commentRoutes, photoRoutes, userRoutes } = require('../app/routes');
+
+
+app.use(cors())
 
 const uploadDir = '../uploads';
 if (!fs.existsSync(uploadDir)) {
